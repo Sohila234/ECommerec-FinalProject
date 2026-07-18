@@ -4,6 +4,7 @@ using ECommerce.Application;
 using ECommerce.Application.Services;
 using ECommerce.Infrastructure;
 using ECommerce.Infrastructure.Data;
+using ECommerce.Infrastructure.Payments;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Options;
@@ -28,6 +29,8 @@ namespace ECommerce.API
             builder.Services.AddOpenApi();
             builder.Services.Configure<UrlSettings>(builder.Configuration.GetSection("UrlSettings"));
             builder.Services.Configure<JWTSettings>(builder.Configuration.GetSection("JWT"));
+            builder.Services.Configure<PaymentGatewaySettings>(builder.Configuration.GetSection("Stripe"));
+
 
 
             var app = builder.Build();

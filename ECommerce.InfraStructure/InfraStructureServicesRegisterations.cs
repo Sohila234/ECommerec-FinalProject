@@ -1,6 +1,7 @@
 ﻿using ECommerce.Domain.Contracts;
 using ECommerce.Domain.Entities.Identity;
 using ECommerce.Infrastructure.Data;
+using ECommerce.Infrastructure.Payments;
 using ECommerce.Infrastructure.Repsitories;
 using ECommerce.Infrastructure.Seeding;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -61,6 +62,8 @@ namespace ECommerce.Infrastructure
 
                 };
             });
+            services.AddScoped<IPaymentGateway, StripePaymentGateway>();
+
             return services;
         }
          

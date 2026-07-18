@@ -20,6 +20,8 @@ namespace ECommerce.Application
             services.AddScoped<IAuthnticationServices, AuthnticationServices>();
             services.AddScoped<ITokenServices, TokenServices>();
             services.AddScoped<IOrderServices, OrderServices>();
+            services.AddScoped<IPaymentService, PaymentService>();
+
 
 
             return services;

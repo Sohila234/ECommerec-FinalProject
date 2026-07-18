@@ -16,6 +16,8 @@ namespace ECommerce.Domain.Entities.Orders
         [ForeignKey("DeliveryMethod")]
         public int DeliveryMethodId { get; set; }
         public OrderStatus Status { get; set; } = OrderStatus.Pending;
+        public string? PaymentIntentId { get; set; }
+
         public decimal SubTotal { get; set; }
         public decimal GetTotal () => SubTotal+ (DeliveryMethod?.Cost ?? 0);
 

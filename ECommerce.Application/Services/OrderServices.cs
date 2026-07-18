@@ -86,6 +86,7 @@ namespace ECommerce.Application.Services
                 DeliveryMethodId = deliveryMethod.Id,
                 SubTotal = subTotal,
                 DeliveryMethod = deliveryMethod,
+                PaymentIntentId=basket.PaymentIntentId,
             };
             unitOfWork.GetRepository<Order, Guid>().Add(order);
             var result = await unitOfWork.SaveChangesSync(ct);
